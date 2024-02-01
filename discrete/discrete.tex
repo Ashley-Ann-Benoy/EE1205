@@ -68,13 +68,13 @@ Find the sum of n terms of the A.P. whose kth term is 5k + 1. }\\
 \hline
 \textbf{Symbol} & \textbf{Value} & \textbf{Parameter} \\
 \hline
-\(x_0\) & \(1 \) & First Term \\
+\(x(0)\) & \(1 \) & First Term \\
 \hline
-\(x_k\) & \(5k + 1 \) & kth Term \\
+\(x(k)\) & \(5k + 1 \) & kth Term \\
 \hline
 \(d\) & \(5 \) & Common Difference \\
 \hline
-\(S_n\) & \(?\) & Sum of \(N\) terms \\
+\(S(n)\) & \(?\) & Sum of \(N\) terms \\
 \hline
 \end{tabular}
 \end{table}
@@ -95,7 +95,7 @@ where \( u(n) \) is the unit step function.
 Z-transform:
 Apply the Z-transform to \( x(n) \):
 \begin{align}
-x(z) = \frac{5 + z^{-1}}{(1 - z^{-1})^2}
+X(z) = \frac{5z^{-1}}{(1 - z^{-1})^2} + \frac{1}{(1 - z^{-1})}
 \end{align}
 
 Region of Convergence or R.O.C :
@@ -109,30 +109,34 @@ Express the sum of the first \( n+1 \) terms (\( y(n) \)) in terms of \( x(n) \)
 y(n) = x(n) * u(n)
 \end{align}
 
-Inverse Z-transform:
-Apply the Z-transform on both sides to get \( Y(z) = X(z)U(z) \), where \( U(z) \) is the Z-transform of the unit step function.
+Applying Z transform on both sides
 \begin{align}
-Y(z) = \frac{5 + z^{-1}}{(1 - z^{-1})^2}
+	Y(z) &= X(z)U(z)\\
+	&=\frac{1}{(1-z^{-1})^2} + \frac{5z^{-1}}{(1-z^{-1})^3}
+\end{align}
+Using contour integration to find inverse Z transform:
+\begin{align}
+	y(n) &= \frac{1}{2\pi j} \oint_C Y(z) z^{n-1} dz\\
+	&= \frac{1}{2\pi j} \oint_C \left[ \frac{1}{(1-z^{-1})^2} + \frac{5z^{-1}}{(1-z^{-1})^3} \right]z^{n-1} \, dz
+\end{align}
+The sum of the terms of the sequence is computed using the residue theorem, expressed as $R_i$, which represents the residue of the Z-transform at $ z=1 $ for the expression $ Y(z) $.
+\begin{align}
+	R_i=R_1 + R_2
+\end{align}
+ $R_1$ and $R_2$ are residues calculated at the poles of the Z-transform.
+\begin{align}
+		R_1 &= \frac{1}{{(2-1)!}} \left. \frac{d (z^{n+1})}{dz} \right|_{z=1} \\
+	&=(n+1)
+\end{align}
+\begin{align}
+	R_2 &= \frac{1}{{(3-1)!}} \left. \frac{d^2(5z^{n+1})}{dz^2} \right|_{z=1} \\
+	&= \frac{5}{2}(n+1)(n)
 \end{align}
 
-Contour Integration for Inverse Z-transform:
-Use contour integration to find the inverse Z-transform (\( y(n) \)):
 \begin{align}
-y(n) = \frac{1}{2\pi j} \oint_C Y(z)z^{n-1} \,dz
+ S(n) &= R_1 + R_2\\
+    &= (n+1) + \frac{5}{2}(n+1)(n)
 \end{align}
-
-Residue Calculations:
-Calculate the residues \( R_1 \) and \( R_2 \) at the poles of the Z-transform.
-\begin{align}
-R_1 = 5(n+1) 
-\end{align}
-\begin{align}
-R_2 = -n
-\end{align}
-\begin{align}
-S_n = r_1 + r_2 = 4n + 5
-\end{align}
-
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]{figs/stem.png}
@@ -140,4 +144,3 @@ S_n = r_1 + r_2 = 4n + 5
   \label{fig:Stem_Plot}
 \end{figure}
 \end{document}
-
