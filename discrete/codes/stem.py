@@ -1,27 +1,25 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
-# Function to generate the sequence x(n)
-def x_n(n):
-    return (5 * n + 1) * (n >= 0)
+def read_points_from_file(file_path):
+    data = np.loadtxt('output.dat')
+    x_values = data[:, 0]
+    y_values = data[:, 1]
+    return x_values, y_values
 
-# Generate values for n
-n_values = np.arange(0, 10, 1)
+def plot_points(x_values, y_values):
+    plt.stem(x_values, y_values, linefmt='b-', markerfmt='bo', basefmt='r-')
+    plt.xlabel('x(n)')
+    plt.ylabel('n')
+    plt.title('Stem Plot of x(n)=(5n+1)u(n)')
+    plt.show()
 
-# Generate the sequence x(n)
-x_values = x_n(n_values)
+def main():
+    file_path = 'your_file.txt'  # Replace with the path to your text file
+    x_values, y_values = read_points_from_file(file_path)
+    plot_points(x_values, y_values)
 
-# Create a stem plot with a grid
-plt.stem(n_values, x_values, basefmt='b-', linefmt='r-', markerfmt='ro')
+if __name__ == "__main__":
+    main()
 
-# Add a grid to the plot
-plt.grid(True)
-
-# Set plot labels and title
-plt.xlabel('n')
-plt.ylabel('x(n)')
-plt.title('Stem Plot of x(n) = (5n + 1)u(n)')
-
-# Show the plot
-plt.show()
 
