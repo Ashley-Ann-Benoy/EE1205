@@ -9,8 +9,9 @@ def read_points_from_file(file_path):
 
 def plot_points(x_values, y_values):
     plt.stem(x_values, y_values, linefmt='b-', markerfmt='bo', basefmt='r-')
-    plt.xlabel('x(n)')
-    plt.ylabel('n')
+    plt.ylabel('x(n)')
+    plt.xlabel('n')
+    plt.grid(True)
     plt.title('Stem Plot of x(n)=(5n+1)u(n)')
     plt.show()
 
@@ -21,5 +22,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
