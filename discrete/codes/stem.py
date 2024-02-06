@@ -13,5 +13,5 @@ plt.stem(x_values, y_values, linefmt='b-', markerfmt='bo', basefmt='r-')
 plt.ylabel('x(n)')
 plt.xlabel('n')
 plt.grid(True)
-plt.title('Stem Plot of x(n) = (5n + 1)u(n)')
+
 plt.show()
