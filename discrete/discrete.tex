@@ -45,8 +45,7 @@
 \vspace{3cm}
 
 \title{NCERT 11.9.2  Q7}
-\author{EE23BTECH11204- Ashley Ann Benoy$^{*}$% <-this % stops a space
-}
+\author{EE23BTECH11204 - Ashley Ann Benoy$^{*}$}% <-this % stops a space
 \maketitle
 \newpage
 \bigskip
@@ -55,70 +54,91 @@
 \renewcommand{\thetable}{\theenumi}
 
 \bibliographystyle{IEEEtran}
-\textbf{Question:
-Find the sum of n terms of the A.P. whose kth term is 5k + 1. }\\
 
+\textbf{Question: Find the sum of n terms of the A.P. whose kth term is \(5k + 1\).}
 
 \textbf{Solution:}
 \input{tables/table_disc.tex}
 
-
-Given:
-\[
-\text{kth term of AP: } a_k = 5k + 1
-\]
-
-Sequence Representation:
-The given arithmetic progression (AP) can be represented as:
-\begin{align}
-x(n) = (5n + 1)u(n)
-\end{align}
-where \( u(n) \) is the unit step function.
-
-Z-transform:
 Apply the Z-transform to \( x(n) \):
 \begin{align}
 X(z) = \frac{5z^{-1}}{(1 - z^{-1})^2} + \frac{1}{(1 - z^{-1})}
 \quad |z|>1
 \end{align}
+
 Sum of First \( n+1 \) Terms:
-Express the sum of the first \( n+1 \) terms (\( y(n) \)) in terms of \( x(n) \) using the convolution:
+Express the sum of the first \( n+1 \) terms (\( y(n) \)) in terms of \( x(n) \) using convolution:
 \begin{align}
 y(n) = x(n) * u(n)
 \end{align}
 
-Applying Z transform on both sides
+Applying Z transform on both sides:
 \begin{align}
-	Y(z) &= X(z)U(z)\\
-	&=\frac{1}{(1-z^{-1})^2} + \frac{5z^{-1}}{(1-z^{-1})^3}
-\end{align}
-Using contour integration to find inverse Z transform:
-\begin{align}
-	y(n) &= \frac{1}{2\pi j} \oint_C Y(z) z^{n-1} dz\\
-	&= \frac{1}{2\pi j} \oint_C \left[ \frac{1}{(1-z^{-1})^2} + \frac{5z^{-1}}{(1-z^{-1})^3} \right]z^{n-1} \, dz
-\end{align}
-The sum of the terms of the sequence is computed using the residue theorem, expressed as $R_i$, which represents the residue of the Z-transform at $ z=1 $ for the expression $ Y(z) $.
-\begin{align}
-	R_i=R_1 + R_2
-\end{align}
- $R_1$ and $R_2$ are residues calculated at the poles of the Z-transform.
-\begin{align}
-		R_1 &= \frac{1}{{(2-1)!}} \left. \frac{d (z^{n+1})}{dz} \right|_{z=1} \\
-	&=(n+1)
-\end{align}
-\begin{align}
-	R_2 &= \frac{1}{{(3-1)!}} \left. \frac{d^2(5z^{n+1})}{dz^2} \right|_{z=1} \\
-	&= \frac{5}{2}(n+1)(n)
+    Y(z) &= X(z)U(z)\\
+    &=\frac{1}{(1-z^{-1})^2} + \frac{5z^{-1}}{(1-z^{-1})^3}
 \end{align}
 
+Given expressions:
 \begin{align}
- S(n) &= R_1 + R_2\\
-    &= (n+1) + \frac{5}{2}(n+1)(n)
+    X_1(z) &= \frac{1}{{(1 - z^{-1})^2}} \\
+    X_2(z) &= \frac{5z^{-1}}{{(1 - z^{-1})^3}} \label{eq:x2z}
 \end{align}
+
+Now, let's find the Z-transforms:
+
+\textbf{1. For \(X_1(z)\):}
+\begin{align}
+    X_1(z) &= \sum_{n=0}^{\infty} x_1[n] \cdot z^{-n} \\
+    x_1[n] &= \binom{n+1}{1}
+\end{align}
+
+The Z-transform pair for \(x[n] = \binom{n+k-1}{k-1}u[n]\) is \(X(z) = \frac{1}{{(1 - z^{-1})^k}}\), where \(k\) is a positive integer. Therefore, \(X_1(z) = \frac{1}{{(1 - z^{-1})^2}}\) corresponds to \(x_1[n] = \binom{n+1}{1}\).
+
+\textbf{2. For \(X_2(z)\):}
+\begin{align}
+    X_2(z) &= \sum_{n=0}^{\infty} x_2[n] \cdot z^{-n} \\
+    x_2[n] &= \binom{n+2}{2}
+\end{align}
+
+The Z-transform pair for \(x[n] = \binom{n+k-1}{k-1}u[n]\) is \(X(z) = \frac{1}{{(1 - z^{-1})^k}}\), where \(k\) is a positive integer. Therefore, \(X_2(z) = \frac{5z^{-1}}{{(1 - z^{-1})^3}}\) corresponds to \(x_2[n] = \binom{n+2}{2}\).
+
+Now, let's find the inverse Z-transforms for \(X_1(z)\) and \(X_2(z)\):
+
+\textbf{1. For \(X_1(z)\):}
+\begin{align}
+    x_1[n] &= \binom{n+1}{1}
+\end{align}
+
+This is a first-order discrete-time signal, and its inverse Z-transform is given by \(x_1[n] = -nu[n]\).
+
+\textbf{2. For \(X_2(z)\):}
+\begin{align}
+    x_2[n] &= \binom{n+2}{2}
+\end{align}
+
+This is a second-order discrete-time signal, and its inverse Z-transform is given by \(x_2[n] = \frac{1}{2}n(n-1)u[n]\).
+
+Therefore, the inverse Z-transforms for \(X_1(z)\) and \(X_2(z)\) are:
+
+\textbf{1.} \(x_1[n] = -nu[n]\)
+
+\textbf{2.} \(x_2[n] = \frac{1}{2}n(n-1)u[n]\)
+
+Now, let's express \(y(n)\) in terms of \(x_1(n)\) and \(x_2(n)\):
+
+\begin{align}
+    y(n) &= x_1(n) + x_2(n) \\
+    &= -nu(n) + \frac{1}{2}n(n-1)u(n) + 5(n-1)u(n-1) \\
+    &= (n+1) + \frac{5n(n+1)}{2}u(n)
+\end{align}
+\\\\\\
+\\\\\\
+The stem plot is given as
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.6\textwidth]{figs/stem2.png}
- 
+  \includegraphics[width=0.6\textwidth]{figs/stem.png}
   \label{fig:Stem_Plot}
 \end{figure}
 \end{document}
+
