@@ -84,61 +84,31 @@ Given expressions:
     X_2(z) &= \frac{5z^{-1}}{{(1 - z^{-1})^3}} \label{eq:x2z}
 \end{align}
 
-Now, let's find the Z-transforms:
+Using z-transform pairs:
 
-\textbf{1. For \(X_1(z)\):}
+1.\( \mathcal{Z}\{n u[n]\} = \frac{z}{(z-1)^2} \) with ROC \( |z| > 1 \)
+\\\\
+2.\( \mathcal{Z}\{n(n-1) u[n]\} = \frac{2z}{(z-1)^3} \) with ROC \( |z| > 1 \)
+\\\\
+
+Rewriting the expression:
 \begin{align}
-    X_1(z) &= \sum_{n=0}^{\infty} x_1[n] \cdot z^{-n} \\
-    x_1[n] &= \binom{n+1}{1}
+&\frac{1}{(1 - z^{-1})^2} + \frac{5}{2} \cdot \frac{2z^{-1}}{(1 - z^{-1})^3} 
+\end{align}
+\\
+\begin{align}
+&= \mathcal{Z}\{n u[n]\} + \frac{5}{2} \mathcal{Z}\{n(n-1) u[n]\}
+\end{align}
+\\
+Therefore, the inverse z-transform of the sum is:
+\begin{align}
+y[n] = n u[n] + \frac{5}{2} n(n-1) u[n]
 \end{align}
 
-The Z-transform pair for \(x[n] = \binom{n+k-1}{k-1}u[n]\) is \(X(z) = \frac{1}{{(1 - z^{-1})^k}}\), where \(k\) is a positive integer. Therefore, \(X_1(z) = \frac{1}{{(1 - z^{-1})^2}}\) corresponds to \(x_1[n] = \binom{n+1}{1}\).
-
-\textbf{2. For \(X_2(z)\):}
-\begin{align}
-    X_2(z) &= \sum_{n=0}^{\infty} x_2[n] \cdot z^{-n} \\
-    x_2[n] &= \binom{n+2}{2}
-\end{align}
-
-The Z-transform pair for \(x[n] = \binom{n+k-1}{k-1}u[n]\) is \(X(z) = \frac{1}{{(1 - z^{-1})^k}}\), where \(k\) is a positive integer. Therefore, \(X_2(z) = \frac{5z^{-1}}{{(1 - z^{-1})^3}}\) corresponds to \(x_2[n] = \binom{n+2}{2}\).
-
-Now, let's find the inverse Z-transforms for \(X_1(z)\) and \(X_2(z)\):
-
-\textbf{1. For \(X_1(z)\):}
-\begin{align}
-    x_1[n] &= \binom{n+1}{1}
-\end{align}
-
-This is a first-order discrete-time signal, and its inverse Z-transform is given by \(x_1[n] = -nu[n]\).
-
-\textbf{2. For \(X_2(z)\):}
-\begin{align}
-    x_2[n] &= \binom{n+2}{2}
-\end{align}
-
-This is a second-order discrete-time signal, and its inverse Z-transform is given by \(x_2[n] = \frac{1}{2}n(n-1)u[n]\).
-
-Therefore, the inverse Z-transforms for \(X_1(z)\) and \(X_2(z)\) are:
-
-\textbf{1.} \(x_1[n] = -nu[n]\)
-
-\textbf{2.} \(x_2[n] = \frac{1}{2}n(n-1)u[n]\)
-
-Now, let's express \(y(n)\) in terms of \(x_1(n)\) and \(x_2(n)\):
-
-\begin{align}
-    y(n) &= x_1(n) + x_2(n) \\
-    &= -nu(n) + \frac{5}{2}n(n-1)u(n) \\
-    &= (n+1) + \frac{5n(n+1)}{2}u(n)
-\end{align}
-\\\\\\
-\\\\\\
 The stem plot is given as
-
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]{figs/stem.png}
   \label{fig:Stem_Plot}
 \end{figure}
 \end{document}
-
