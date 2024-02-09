@@ -84,23 +84,16 @@ Given expressions:
     X_2(z) &= \frac{5z^{-1}}{{(1 - z^{-1})^3}} \label{eq:x2z}
 \end{align}
 
-Using z-transform pairs:
 
-1.\( \mathcal{Z}\{n u[n]\} = \frac{z}{(z-1)^2} \) with ROC \( |z| > 1 \)
-\\\\
-2.\( \mathcal{Z}\{n(n-1) u[n]\} = \frac{2z}{(z-1)^3} \) with ROC \( |z| > 1 \)
-\\\\
+\input{tables/ztransf.tex}
 
 Rewriting the expression:
 \begin{align}
 &\frac{1}{(1 - z^{-1})^2} + \frac{5}{2} \cdot \frac{2z^{-1}}{(1 - z^{-1})^3} 
 \end{align}
 \\
-\begin{align}
-&= \mathcal{Z}\{n u[n]\} + \frac{5}{2} \mathcal{Z}\{n(n-1) u[n]\}
-\end{align}
-\\
-Therefore, the inverse z-transform of the sum is:
+On referring the above table we can obtain the  Z trnasform inverse as follows:
+
 \begin{align}
 y[n] = n u[n] + \frac{5}{2} n(n-1) u[n]
 \end{align}
