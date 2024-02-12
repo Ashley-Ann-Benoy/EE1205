@@ -50,8 +50,7 @@
 \newpage
 \bigskip
 
-\renewcommand{\thefigure}{\theenumi}
-\renewcommand{\thetable}{\theenumi}
+
 
 \bibliographystyle{IEEEtran}
 
@@ -60,20 +59,23 @@
 \solution
 \begin{table}[h!]
 	\centering
-	 \resizebox{6cm}{!}{
-	 	\input{tables/table_disc.tex}
-	 	}
-	 	\caption{Given Parameters}
-	 	\label{tab:my_label}
- \end{table}
- \begin{table}[h!]
+	\resizebox{6cm}{!}{
+		\input{tables/table_disc.tex}
+	}
+	\\
+	\caption{Given Parameters}
+	\label{tab:given_params}  % <-- Change the label to a unique one
+\end{table}
+
+\begin{table}[h!]
 	\centering
-	 \resizebox{6cm}{!}{
-	 	\input{tables/ztransf.tex}
-	 	}
-	 	\caption{Z Transform Pairs}
-	 	\label{tab:my_label}
- \end{table}
+	\resizebox{6cm}{!}{
+		\input{tables/ztransf.tex}
+	}
+	\\
+	\caption{Z Transform Pairs}
+	\label{tab:z_transform}  % <-- Change the label to a unique one
+\end{table}
 
 
 
