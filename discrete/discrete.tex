@@ -26,6 +26,8 @@
 \usepackage{ifthen}                                           
 \usepackage{lscape}
 
+\newcommand{\brak}[1]{\left[#1\right]}
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{problem}{Problem}
 \newtheorem{proposition}{Proposition}[section]
@@ -44,75 +46,63 @@
 \bibliographystyle{IEEEtran}
 \vspace{3cm}
 
-\title{NCERT 11.9.2  Q7}
+\title{NCERT 11.9.2 Q7}
 \author{EE23BTECH11204 - Ashley Ann Benoy$^{*}$}% <-this % stops a space
 \maketitle
 \newpage
 \bigskip
-
-
-
 \bibliographystyle{IEEEtran}
-
 \textbf{Question: Find the sum of n terms of the A.P. whose kth term is \(5k + 1\).}\\
-
 \solution
 \begin{table}[h!]
-	\centering
-	\resizebox{6cm}{!}{
-		\input{tables/table_disc.tex}
-	}
-	\\
-	\caption{Given Parameters}
-	\label{tab:given_params}  % <-- Change the label to a unique one
+    \centering
+    \resizebox{6cm}{!}{
+        \input{tables/table_disc.tex}
+    }
+    \\
+    \caption{Given Parameters}
+    \label{tab:given_params}  
 \end{table}
 
-\begin{table}[h!]
-	\centering
-	\resizebox{6cm}{!}{
-		\input{tables/ztransf.tex}
-	}
-	\\
-	\caption{Z Transform Pairs}
-	\label{tab:z_transform}  % <-- Change the label to a unique one
-\end{table}
-
-
-
-Apply the Z-transform to \( x(n) \):
+Apply the Z-transform to \( x\brak{n} \):
 \begin{align}
-X(z) = \frac{5z^{-1}}{(1 - z^{-1})^2} + \frac{1}{(1 - z^{-1})}
+X\brak{z} = \frac{5z^{-1}}{\brak{1 - z^{-1}}^2} + \frac{1}{\brak{1 - z^{-1}}}
 \quad |z|>1
 \end{align}
 
 Sum of First \( n \) Terms:
 
 \begin{align}
-y(n) = x(n) * u(n)
+y\brak{n} = x\brak{n} * u\brak{n}
 \end{align}
 
 Applying Z transform on both sides:
 \begin{align}
-    Y(z) &= X(z)U(z)\\
-    &=\frac{1}{(1-z^{-1})^2} + \frac{5z^{-1}}{(1-z^{-1})^3}
+    Y\brak{z} &= X\brak{z}U\brak{z}
 \end{align}
 
-
-
-
-Rewriting the expression:
 \begin{align}
-&=\frac{1}{(1 - z^{-1})^2} + \frac{5}{2} \cdot \frac{2z^{-1}}{(1 - z^{-1})^3} 
+&=\frac{1}{\brak{1 - z^{-1}}^2} + \frac{5}{2} \cdot \frac{2z^{-1}}{\brak{1 - z^{-1}}^3} 
 \end{align}
 \\
-On referring the above table we can obtain the  Z trnasform inverse as follows:
+Now we can compare the  above pairs as;
+\begin{align}
+nu\brak{n} \xleftrightarrow{\text{Z}} \frac{z^{-1}}{(1 - z^{-1})^2}
+\end{align}
+\begin{align}
+u\brak{n} \xleftrightarrow{\text{Z}} \frac{1}{(1 - z^{-1})}
+\end{align}
+\begin{align}
+n\brak{n-1}u\brak{n} \xleftrightarrow{\text{Z}} \frac{2z^{-1}}{(1 - z^{-1})^3}
+\end{align}
+On referring the above equations and comparing, we can obtain the  Z transform inverse as follows:
 
 \begin{align}
-y[n] = n u[n] + \frac{5}{2} n(n-1) u[n]
+y\brak{n} = \brak{n+1 }u\brak{n} + \frac{5}{2} n\brak{n-1} u\brak{n}
 \end{align}
-Therefore we have got the sun of n terms as:
+Therefore we have got the sum of n terms as:
 \begin{align}
-y[n] = [n  + \frac{5}{2} n(n-1)]u[n]
+y\brak{n}= \brak{n+1 + \frac{5}{2} n\brak{n-1}}u\brak{n}
 \end{align}
 The stem plot is given as
 \begin{figure}[h!]
