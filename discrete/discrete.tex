@@ -99,14 +99,17 @@ On referring the above equations and comparing, we can obtain the  Z transform i
 \begin{align}
 y\brak{n} = \brak{n+1 }u\brak{n} + \frac{5}{2} n\brak{n-1} u\brak{n}
 \end{align}
-Therefore we have got the sum of n terms as:
 \begin{align}
-y\brak{n}= \brak{n+1 + \frac{5}{2} n\brak{n-1}}u\brak{n}
+&= \brak{n+1 + \frac{5}{2} n\brak{n-1}}u\brak{n}
+\end{align}
+Since we are taking n starting from 0 we replace n with n+1 to make our simulation match with the theory\\Therefore, we have got the sum of n terms as:\\
+\begin{align}
+y\brak{n}= \brak{n+2 + \frac{5}{2} n\brak{n+1}}u\brak{n+1}
 \end{align}
 The stem plot is given as
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\columnwidth]{figs/stem.png}
+  \includegraphics[width=\columnwidth]{figs/Figure_1.png}
   \label{fig:Stem_Plot}
 \end{figure}
 \end{document}
