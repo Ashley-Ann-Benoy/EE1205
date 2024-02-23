@@ -75,13 +75,11 @@
     &= \beta \frac{s + a}{s + a\beta}
     \end{align}
     
-    1. The max phase lead is :\(\omega_m = \sqrt{a \cdot a \cdot \beta}\)\\
+    1. The max phase lead is: \(\omega_m = \sqrt{a \cdot a \cdot \beta}\)\\
 
     2. If \(G(s) = \frac{k(s+a)}{s(s+a\beta)}\) has to act as a lead compensator, then \(a\beta\) must be greater than \(a\), i.e., \(a\beta > a \).\\
     
-    3. \(a+j\omega_m=j\omega_m\)\\
-     
-    4. \(\frac{\omega_m}{a\beta}=0\)\\
+  
     
     Using the above properties we have:
     
@@ -90,28 +88,37 @@
     \beta &> 1
     \end{align}
     
-    Using gain amplification:
     \begin{align}
-    K(j\omega_m) &= \frac{1 + \frac{j\omega_m}{a}}{1 + \frac{j\omega_m}{a\beta}} \\
-    &= \frac{j\omega_m}{a}
+    K(j\omega) &= \frac{1 + \frac{j\omega}{a}}{1 + \frac{j\omega}{a\beta}} 
+    &= \beta \frac{j\omega + a}{j\omega + a\beta}
     \end{align}
     
-    Using gain amplification in dB:
     \begin{align}
-    20\log_{10}|K(j\omega_m)| &= 20\log_{10}\left(\frac{\omega_m}{a}\right) = 6
+    |K(j\omega)| =\frac{\beta \sqrt{\omega^2 + a^2}}{\sqrt{\omega^2 + (a\beta)^2}}
     \end{align}
     
-    Solving for \(a\):
+    Using Gain Amplification:
     \begin{align}
-    \log_{10}\left(\frac{\omega_m}{a}\right) &= 0.3 \\
-    \frac{\omega_m}{a} &= 10^{0.3} \\
-    a &\approx \frac{\omega_m}{10^{0.3}} \\
-    a &\approx \frac{4}{2} \\
-    a &\approx 2
+     20\log_{10}|K(j\omega_m)| = 6
+     \end{align}
+     \begin{align}
+     |K(j\omega_m)| \approx  2
+     \end{align}
+     
+    \begin{align}
+    |K(j\omega_m)| =\frac{\beta \sqrt{(\omega_m)^2 + a^2}}{\sqrt{(\omega_m)^2 + (a\beta)^2}}=2
     \end{align}
     
-    Since \(a \approx 2\), and \(\beta\) = 4, \\
-     Therefore,the correct answer is \textbf{(B) 2, 4}.
+    \begin{align}
+    \frac{\beta \sqrt{16 + a^2}}{\sqrt{16 + (a\beta)^2}}=2
+    \end{align}
     
+    Solving the above equation, we get \(a \approx 2\) and \(\beta = 4\). Therefore, the correct answer is \textbf{(B) 2, 4}.
+    
+    The Bode plots for the same are as follows:
+    \begin{figure}[h!]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/bode.png}
+  \label{fig:bode_Plot}
+\end{figure}
 \end{document}
-
