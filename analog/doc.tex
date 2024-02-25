@@ -82,6 +82,7 @@ Given parameters are:
 
 The impedance of the above circuit is given as:
 \begin{align}
+  H(s) &= \dfrac{V(s)}{I(s)}\\
      H(s) &= R + sL + \dfrac{1}{sC}\\
      \implies H(j\omega) &= R + j\omega L + \dfrac{1}{j\omega C}\\
      \implies \lvert H(j\omega) \rvert &= \sqrt{R^2 + \left(\omega L - \dfrac{1}{\omega C}\right)^2}
@@ -255,5 +256,9 @@ Now, let's calculate this:
 \begin{align}
     Q \approx 39.6826 
 \end{align}
-
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/analog.png}
+  \label{fig:bode_Plot}
+  \end{figure}
 \end{document}
