@@ -4,18 +4,8 @@
 
 \begin{document}
 Consider the system as shown below:
-\begin{center}
-\begin{tikzpicture}
-    % Box
-    \draw (0,0) rectangle (4,2);
+\input{figs/gate22.tex}
 
-    % Arrow and label for x(t)
-    \draw[->,>=stealth] (-1,1) -- node[above] {$x(t)$} (0,1);
-
-    % Arrow and label for y(t)
-    \draw[->,>=stealth] (4,1) -- node[above] {$y(t)$} (5,1);
-\end{tikzpicture}
-\end{center}
 The system is described by the equation
 \[ y(t) = x(e^{-t}). \]\\
 The system is:
@@ -26,4 +16,3 @@ The system is:
     \item[(D)] linear and causal.
 \end{itemize}
 \end{document}
-
