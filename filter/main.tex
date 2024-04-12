@@ -105,7 +105,7 @@ Substituting $\Omega_{s1}$ and $\Omega_{s2}$ in \eqref{eq:freq_transform} we obt
 \end{align}
 And we choose the minimum of these two stopband edges
 \begin{align}
-    \Omega_{Ls} = \mbox{min}(\vert \Omega_{Ls_1}\vert,\vert \Omega_{Ls_2}\vert) = 1..
+    \Omega_{Ls} = \mbox{min}(\vert \Omega_{Ls_1}\vert,\vert \Omega_{Ls_2}\vert) = 1.34
 \end{align}
 \item {The Low Pass Chebyschev Filter Paramters:} The magnitude of frequency response of the low pass filter is given by 
 \begin{align}
@@ -143,7 +143,7 @@ we get $N\geq 4$ and $0.16 \leq \epsilon \leq 0.62$\\
 \newpage
 The below code plots \eqref{eq:mag_freq_response} for different values of $\epsilon$ .
 \begin{lstlisting}
-https://github.com/dhanushnayakh03/EE1205/tree/main/Audio_%20Filter/codes/plot1.py
+https://github.com/Ashley-Ann-Benoy/EE1205/blob/main/filter/codes/plot1.py
 \end{lstlisting}
 \begin{figure}[H]
 \centering
@@ -176,14 +176,14 @@ where $k$ is the index of the pole and \\
 \end{align}
 The below code computes the values of $s_k$ and stores it in a text file. 
 \begin{lstlisting}
-https://github.com/dhanushnayakh03/EE1205/blob/main/Filter_Design/codes/sk_gen.c
+https://github.com/Ashley-Ann-Benoy/EE1205/blob/main/filter/codes/sk_gen.c
 \end{lstlisting}
 The poles obtained are formulated in the table below.
 \input{tables/sk_tab}
 
 The below code plots the pole-zero plot.
 \begin{lstlisting}
-https://github.com/dhanushnayakh03/EE1205/blob/main/Filter_Design/codes/plot1.py
+https://github.com/Ashley-Ann-Benoy/EE1205/blob/main/filter/codes/pole_zero_plt.py
 \end{lstlisting}
 \begin{figure}[H]
 \centering
@@ -202,10 +202,56 @@ We know that from \eqref{eq:mag_freq_response}:-
 \begin{align}
     \abs{ H_{a,LP}(s_L)} &= \frac{1}{\sqrt{1+\epsilon^2}} \text{at} \hspace{5pt} \Omega_{L}=1 \implies s_{L} = j \label{eq:Gain_eq_LP} 
 \end{align}
-Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=0.4166$
+Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=0.2499$
 \begin{align}
-     H_{a,LP}(s_L) &= \frac{0.4166}{\brak{s_L-s_5}\brak{s_L-s_6}\brak{s_L-s_7}\brak{s_L-s_8}}\\
-     &= \frac{0.4166}{s_{L}^4 + 1.3022s_{L}^3 +1.84781s_{L}^2 + 1.16512s_{L} +0.435003}\label{eq:design}
+     H_{a,LP}(s_L) &= \frac{0.2499}{\brak{s_L-s_5}\brak{s_L-s_6}\brak{s_L-s_7}\brak{s_L-s_8}}\\
+     &= \frac{0.2499}{s_L^4 + 0.9636s_L^3 + 1.4642s_L^2+0.7539s_L + 0.2795}\label{eq:design}
 \end{align}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\columnwidth]{figs/Design_vs_Specification.png}
+\caption{Design vs Specification corresponding to \eqref{eq:design} and \eqref{eq:specification}}
+\label{fig:design_vs_specf}
+\end{figure}
+
+Plot fot Figure 3
+\begin{lstlisting}
+https://github.com/Ashley-Ann-Benoy/EE1205/blob/main/filter/codes/plot2.py
+\end{lstlisting}
+\item {The Band Pass Chebyschev Filter:} 
+After verifying design with the required specifications the next step in design is to jump to required type of filter using frequency transformation. 
+\begin{align}
+    s_L &= \frac{s^2 + \Omega_0^2}{Bs} \\
+    H_{a,BP}(s) &= G_{BP}H_{a,LP}(s_L)\vert_{s_L = \frac{s^2 + \Omega_0^2}{Bs}},
+\end{align}
+As there is one to one correspondence between the filters so $\Omega=\Omega_{p1}$ should correspond to $\Omega_{Lp}$
+\begin{align}
+    s &= j\Omega_{p1}\\
+    s_{L} &= \frac{(j\Omega_{p1})^2 + \Omega_0^2}{B(j\Omega_{p1})} \label{eq:res1} \\ 
+    \abs{H_{a,BP}(j\Omega_{p1})} &= 1 \\
+    G_{BP}\abs{H_{a,LP}(s_L)} &= 1 \label{eq:res2}
+\end{align}
+Substituting \eqref{eq:res1} in \eqref{eq:res2} we obtain Gain of required bass pass filter:
+\begin{align}
+    G_{BP} &= 1.1187
+\end{align}
+Thus the response in s domain 
+\begin{align}
+   H_{a,BP}(s) = \frac{2.9195\times 10^{-5}s^4}{s^8 + 0.1282s^7 + 2.7895s^6 + 0.2676s^5 + 2.8990s^4 + 0.1848s^3 + 1.3315s^2 + 0.0422s + 0.2278}\label{eq:magnitude_bandpass_sdom}
+\end{align}
+The expressions in the s-domain and gain factors are computed by writing a Python code. \\
+In Figure 3, we plot $\vert H_{a,BP}(j\Omega)\vert$ as a function of $\Omega$ for both positve as
+well as negative frequencies.  We find that the passband and stopband frequencies in the figure
+match well with those obtained analytically through the bilinear transformation.
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\columnwidth]{figs/Band_Pass_Filter.png}
+\caption{The Analog Bandpass Magnitude Response from \eqref{eq:magnitude_bandpass_sdom}.The filter design specifications are satisfied}
+\label{fig:band_pass_filter}
+\end{figure}
+
+\begin{lstlisting}
+https://github.com/Ashley-Ann-Benoy/EE1205/blob/main/filter/codes/plot3.py
+\end{lstlisting}
 \end{enumerate}
 \end{document}
