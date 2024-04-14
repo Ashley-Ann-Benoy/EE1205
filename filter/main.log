@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.4)  14 APR 2024 13:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.4)  14 APR 2024 17:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1183,7 +1183,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--143
  []
 
 [3]
-<figs/plot1.png, id=86, 462.528pt x 346.896pt>
+<figs/plot1.png, id=106, 462.528pt x 346.896pt>
 File: figs/plot1.png Graphic file (type png)
 <use figs/plot1.png>
 Package pdftex.def Info: figs/plot1.png  used on input line 150.
@@ -1202,7 +1202,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 171--173
 LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <10> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 16.
 )
-<figs/Pole_Zero_plt.png, id=102, 462.528pt x 346.896pt>
+<figs/Pole_Zero_plt.png, id=122, 462.528pt x 346.896pt>
 File: figs/Pole_Zero_plt.png Graphic file (type png)
 <use figs/Pole_Zero_plt.png>
 Package pdftex.def Info: figs/Pole_Zero_plt.png  used on input line 190.
@@ -1212,7 +1212,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--200
 
  []
 
-<figs/Design_vs_Specification.png, id=118, 462.528pt x 346.896pt>
+<figs/Design_vs_Specification.png, id=138, 462.528pt x 346.896pt>
 File: figs/Design_vs_Specification.png Graphic file (type png)
 <use figs/Design_vs_Specification.png>
 Package pdftex.def Info: figs/Design_vs_Specification.png  used on input line 2
@@ -1223,35 +1223,65 @@ Overfull \hbox (78.7106pt too wide) detected at line 241
 []
  []
 
-<figs/Band_Pass_Filter.png, id=150, 462.528pt x 346.896pt>
+<figs/Band_Pass_Filter.png, id=170, 462.528pt x 346.896pt>
 File: figs/Band_Pass_Filter.png Graphic file (type png)
 <use figs/Band_Pass_Filter.png>
 Package pdftex.def Info: figs/Band_Pass_Filter.png  used on input line 248.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
-[8 <./figs/Band_Pass_Filter.png>] (./main.aux)
+[8 <./figs/Band_Pass_Filter.png>]
+Overfull \hbox (104.84894pt too wide) detected at line 264
+[]
+ []
+
+<figs/Digital_BPF.png, id=184, 462.528pt x 346.896pt>
+File: figs/Digital_BPF.png Graphic file (type png)
+<use figs/Digital_BPF.png>
+Package pdftex.def Info: figs/Digital_BPF.png  used on input line 269.
+(pdftex.def)             Requested size: 345.0pt x 258.76335pt.
+[9 <./figs/Digital_BPF.png>]
+<figs/LPF_FIR.png, id=193, 722.7pt x 433.62pt>
+File: figs/LPF_FIR.png Graphic file (type png)
+<use figs/LPF_FIR.png>
+Package pdftex.def Info: figs/LPF_FIR.png  used on input line 287.
+(pdftex.def)             Requested size: 345.0pt x 206.9972pt.
+ [10 <./figs/LPF_FIR.png>]
+<figs/FIR_Low_Filter.png, id=205, 462.528pt x 346.896pt>
+File: figs/FIR_Low_Filter.png Graphic file (type png)
+<use figs/FIR_Low_Filter.png>
+Package pdftex.def Info: figs/FIR_Low_Filter.png  used on input line 350.
+(pdftex.def)             Requested size: 345.0pt x 258.76335pt.
+ [11]
+<figs/FIR_Bandpass_Filter.png, id=217, 462.528pt x 346.896pt>
+File: figs/FIR_Bandpass_Filter.png Graphic file (type png)
+<use figs/FIR_Bandpass_Filter.png>
+Package pdftex.def Info: figs/FIR_Bandpass_Filter.png  used on input line 380.
+(pdftex.def)             Requested size: 345.0pt x 258.76335pt.
+ [12 <./figs/FIR_Low_Filter.png>] [13 <./figs/FIR_Bandpass_Filter.png>] (./main
+.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 56D322CF996CFE3F64DE5FF4A16BCF03;860.
+(rerunfilecheck)             Checksum: C2D8058AB543BC3B30F82EC98E695026;1717.
  ) 
 Here is how much of TeX's memory you used:
- 42294 strings out of 478287
- 979380 string characters out of 5849290
- 1496662 words of memory out of 5000000
- 59724 multiletter control sequences out of 15000+600000
+ 42366 strings out of 478287
+ 980688 string characters out of 5849290
+ 1497297 words of memory out of 5000000
+ 59762 multiletter control sequences out of 15000+600000
  508443 words of font info for 121 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 115i,12n,118p,424b,1193s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,21n,118p,424b,1193s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
 fonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 189225 bytes).
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/times/utmri8a.pfb>
+Output written on main.pdf (13 pages, 322422 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 182 compressed objects within 2 object streams
- 81 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
+ 111 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
