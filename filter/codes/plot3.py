@@ -6,7 +6,7 @@ s1 = -0.1411 - 0.9847j
 s2 = -0.3407 - 0.4079j
 s3 = -0.3407 + 0.4079j
 s4 = -0.1411 + 0.9847j
-epsilon = 0.5
+epsilon = 0.4
 Omega_Lp = 1
 
 # Define denominator polynomial

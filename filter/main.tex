@@ -202,10 +202,10 @@ We know that from \eqref{eq:mag_freq_response}:-
 \begin{align}
     \abs{ H_{a,LP}(s_L)} &= \frac{1}{\sqrt{1+\epsilon^2}} \text{at} \hspace{5pt} \Omega_{L}=1 \implies s_{L} = j \label{eq:Gain_eq_LP} 
 \end{align}
-Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=0.2499$
+Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=0.3125$
 \begin{align}
-     H_{a,LP}(s_L) &= \frac{0.2499}{\brak{s_L-s_5}\brak{s_L-s_6}\brak{s_L-s_7}\brak{s_L-s_8}}\\
-     &= \frac{0.2499}{s_L^4 + 0.9636s_L^3 + 1.4642s_L^2+0.7539s_L + 0.2795}\label{eq:design}
+     H_{a,LP}(s_L) &= \frac{0.3125}{\brak{s_L-s_5}\brak{s_L-s_6}\brak{s_L-s_7}\brak{s_L-s_8}}\\
+     &= \frac{0.3125}{s^4 + 1.1068s^3 + 1.61245s^2 + 0.91397s + 0.33656}\label{eq:design}
 \end{align}
 \begin{figure}[H]
 \centering
@@ -233,11 +233,11 @@ As there is one to one correspondence between the filters so $\Omega=\Omega_{p1}
 \end{align}
 Substituting \eqref{eq:res1} in \eqref{eq:res2} we obtain Gain of required bass pass filter:
 \begin{align}
-    G_{BP} &= 1.1187
+    G_{BP} &= 1.0771 
 \end{align}
 Thus the response in s domain 
 \begin{align}
-   H_{a,BP}(s) = \frac{2.9195\times 10^{-5}s^4}{s^8 + 0.1282s^7 + 2.7895s^6 + 0.2676s^5 + 2.8990s^4 + 0.1848s^3 + 1.3315s^2 + 0.0422s + 0.2278}\label{eq:magnitude_bandpass_sdom}
+    H_{a,BP}\brak{s} &= \frac{9.8138\times 10^{-5}s^4}{s^8 + 0.108s^7 + 0.982s^6 + 0.079s^5 + 0.358s^4 + 0.0192s^3 + 0.0574s^2 + 0.0015s + 0.0034} \label{eq:magnitude_bandpass_sdom}
 \end{align}
 The expressions in the s-domain and gain factors are computed by writing a Python code. \\
 In Figure 3, we plot $\vert H_{a,BP}(j\Omega)\vert$ as a function of $\Omega$ for both positve as

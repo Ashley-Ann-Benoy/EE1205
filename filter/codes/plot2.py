@@ -2,11 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Given parameters
-s1 = -0.1411 - 0.9847j
-s2 = -0.3407 - 0.4079j
-s3 = -0.3407 + 0.4079j
-s4 = -0.1411 + 0.9847j
-epsilon = 0.5
+s1 = -0.1621 -1.0033j
+s2 = -0.3913 -0.4156j
+s3 = -0.3913 + 0.4156j
+s4 = -0.1621 + 1.0033j
+epsilon = 0.4
 Omega_Lp = 1
 
 # Generate the denominator polynomial
@@ -27,11 +27,11 @@ x = w / Omega_Lp
 c_N_interpolated = np.interp(x, Omega_L_values, c_N_values)
 Ha_values = 1 / np.sqrt(1 + epsilon**2 * c_N_interpolated**2)
 
-# Plot magnitude response for epsilon = 0.5
+# Plot magnitude response for epsilon = 0.4
 plt.figure()
 plt.plot(w, Ha_values, '*', label='Design')
 
-G_LP = 0.2499
+G_LP = 0.3125
 num = G_LP
 
 # Calculate magnitude response for epsilon = 0.5
