@@ -34,12 +34,12 @@ plt.plot(w, Ha_values, '*', label='Design')
 G_LP = 0.3125
 num = G_LP
 
-# Calculate magnitude response for epsilon = 0.5
+# Calculate magnitude response for epsilon = 0.4
 s = 1j * w
 H = num / np.polyval(den, s)
 magnitude = np.abs(H)
 
-# Plot magnitude response for epsilon = 0.5
+# Plot magnitude response for epsilon = 0.4
 plt.plot(w, magnitude, label='Specification')
 
 plt.title('Design vs Specification')
